@@ -217,17 +217,20 @@
                         <span class="align-middle">My Profile</span>
                       </a>
                     </li>
-                    <li>
-                      <div class="dropdown-divider"></div>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                    {{__('Logout')}}
-                        <!-- <i class="bx bx-power-off me-2"></i>
-                        <span class="align-middle">Log Out</span> -->
-                      </a>
-                    </li>
+                     <li>
+            <div class="dropdown-divider"></div>
+        </li>
+        <li>
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                <i class="bx bx-power-off me-2"></i>
+                <span class="align-middle">{{ __('Logout') }}</span>
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        </li>
                   </ul>
                 </li>
                 <!--/ User -->
