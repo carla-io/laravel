@@ -36,11 +36,20 @@ class ClientController extends Controller
 
        return redirect()->route('addtocart')->with('message', 'Your item added to cart successfully!');
     }
+
+    public function RemoveCartItem($id){
+        Cart::findOrFail($id)->delete();
+        return redirect()->route('addtocart')->with('message', 'Your item removed from cart successfully!');
+    }
     
     public function AddToCart(){
         $userid = Auth::id();
         $cart_items = Cart::where('user_id', $userid)->get();
         return view('user_template.addtocart', compact('cart_items'));
+    }
+
+    public function GetShippingAddress(){
+        return view('user_template.shippingaddress');
     }
 
     public function Checkout(){
