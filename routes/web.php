@@ -33,10 +33,8 @@ Route::controller(HomeController::class)->group(function (){
 Route::controller(ClientController::class)->group(function(){
   Route::get('/category/{id}/', 'CategoryPage')->name('category');
   Route::get('/product-details/{id}/', 'SingleProduct')->name('singleproduct');
-  Route::get('/add-to-cart', 'AddToCart')->name('addtocart');
-  Route::get('/checkout', 'checkout')->name('checkout');
-  Route::get('/custom-service', 'CustomService')->name('customservice');
-  Route::get('/user-profile', 'UserProfile')->name('userprofile');
+  
+
 });
 
 Route::get('/dashboard', function () {
@@ -46,7 +44,7 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth', 'role:user'])->group(function(){
   Route::controller(ClientController::class)->group(function(){
     Route::get('/add-to-cart', 'AddToCart')->name('addtocart');
-    Route::post('/add-product-to-cart/{id}', 'AddProductToCart')->name('addproducttocart');
+    Route::post('/add-product-to-cart', 'AddProductToCart')->name('addproducttocart');
     Route::get('/checkout', 'checkout')->name('checkout');
     Route::get('/custom-service', 'CustomService')->name('customservice');
     Route::get('/user-profile', 'UserProfile')->name('userprofile');

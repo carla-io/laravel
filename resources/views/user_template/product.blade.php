@@ -21,12 +21,13 @@
     </div>
 
     <div class="btn_main">
-         <form action="{{ route('addproducttocart', $product -> id ) }}" method="POST"> 
+         <form action="{{ route('addproducttocart') }}" method="POST"> 
             @csrf 
             <input type="hidden" value="{{$product -> id}}" name="product_id">
             <div class="form-group">
-                <label for="product_quantity">How many pieces</label>
-                <input class="form-control" type="number"  min='1' placeholder="1" name="product_qunatity">
+            <input type="hidden" value="{{$product->price}}" name="price">
+                <label for="quantity">How many pieces</label>
+                <input class="form-control" type="number"  min='1' placeholder="1" name="quantity">
             </div>
             <br>
             <input class="btn btn-warning" type="submit" value="Add To Cart">
