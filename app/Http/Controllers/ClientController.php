@@ -67,4 +67,8 @@ class ClientController extends Controller
     public function CustomService(){
         return view('user_template.customservice');
     }
+
+    public function AddShippingAddress(Request $request){
+      
+    }
 }
