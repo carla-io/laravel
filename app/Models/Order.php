@@ -9,13 +9,12 @@ class Order extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'customer_name',
-        'customer_id',
+        'user_id',
+        'shipping_phoneNumber',
+        'shipping_city',
+        'shipping_postalcode',
         'product_name',
-        'product_id',
-        'product_price',
-        'product_qty',
-        'total_price',
-        'status',
+        'quantity',
+        'total_price'
     ];
 }
